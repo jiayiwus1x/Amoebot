@@ -1,7 +1,7 @@
 # flocking-robot
 
 Creat a robot with adaptable vicsek particles. 
-![flocking robot going through maze](https://drive.google.com/open?id=1zdsMRSZ0NHLJVn6v9AUTCp8vpAHLUroo/view)
+![flocking robot going through maze](https://drive.google.com/file/d/1zdsMRSZ0NHLJVn6v9AUTCp8vpAHLUroo/view?usp=sharing)
 (flocking robot going through maze)
 
 ## Description
