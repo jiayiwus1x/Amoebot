@@ -5,17 +5,17 @@
 
 ## Description
 
-Creat a robot compose of skin and bulk. The skin is composed with adaptable vicsek particles and bulk are passive. 
+We create a robot is composed of a skin and a bulk. The skin is composed with adaptable vicsek particles and bulk is made up of passive particles. We then simulate the movement of this robot though an obstacle course. 
 
 
 ## Usage
 
-Following along the jupyter notebook。
+Please follow along these jupyter notebooks:
 1. adaptive_robot.ipynb 
-Simulating a flocking robot that moving downward through a maze. The sizes of the maze/robot and interactions between them are customizable.
+Simulating a flocking robot that moves downward through a maze. The sizes of the maze/robot and the interactions between them are customizable.
 
 2.interactive-soft robot.ipynb
-Creating a enviornment where you can change the maze in real time.
+Creating an enviornment where you can change the maze in real time.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
