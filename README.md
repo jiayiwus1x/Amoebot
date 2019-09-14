@@ -11,6 +11,7 @@ We create a robot is composed of a skin and a bulk. The skin is composed with ad
 ## Usage
 
 Please follow along these jupyter notebooks:
+
 1. adaptive_robot.ipynb 
 
 Simulating a flocking robot that moves downward through a maze. The sizes of the maze/robot and the interactions between them are customizable.
