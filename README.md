@@ -1,4 +1,4 @@
-# flocking-robot
+# Amoebot
 ![flocking robot going through maze](https://drive.google.com/uc?export=view&id=1zdsMRSZ0NHLJVn6v9AUTCp8vpAHLUroo)
 (flocking robot going through a maze)
 
