@@ -5,8 +5,7 @@
 
 ## Description
 
-We create a robot is composed of a skin and a bulk. The skin is composed with adaptable Vicsek particles and bulk is made up of passive particles. We then simulate the movement of this robot though an obstacle course. 
-
+We create a robot that is composed of a bulk of particles surrounded by a boundary layer or "skin". The skin is is made up of of adaptable Vicsek particles and the bulk is made up of passive particles. We then simulate the movement of this robot though an obstacle course. The robot is able to move around the obstacles without exerting much force on them like an Amoeba!
 
 ## Usage
 
