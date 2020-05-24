@@ -1,14 +1,8 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import numpy.linalg as la
 import matplotlib
-
-from matplotlib.patches import Circle, Wedge, Polygon
-from matplotlib.collections import PatchCollection
 import matplotlib.pyplot as plt
-import os
-from datetime import datetime
-
+import numpy as np
+from matplotlib.collections import PatchCollection
+import math
 
 def make_hex(n1, n2):
     '''
@@ -79,16 +73,20 @@ def plot_circles(fig, ax, x, y, r, c='r', cmap=matplotlib.cm.rainbow, ticks=[0, 
     p.set_clim(min(ticks), max(ticks))
     return fig
 
+
 def get_d_txt(a):
     times_go_thr = []
     forces = []
     c_gs = []
     j = 0
     for i in a:
-        if j !=0:
+        if j != 0:
             print(i.split(",")[0])
             times_go_thr += [float(i.split(",")[0])]
             forces += [float(i.split(",")[1])]
             c_gs += [float(i.split(",")[2])]
-        j +=1
-    return forces,times_go_thr
+        j += 1
+    return forces, times_go_thr
+
+def PointsInCircum(a,b,n=100):
+    return np.array([[math.cos(2*np.pi/n*x)*a,math.sin(2*np.pi/n*x)*b] for x in range(0,n+1)])
