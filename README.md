@@ -9,14 +9,10 @@ We create a robot that is composed of a bulk of particles surrounded by a bounda
 
 ## Usage
 
-Please follow along 
-1. main.py with function library func.py and ploting library visual_lib.py
+Please follow along main.py with function library func.py and ploting library visual_lib.py
 
 Simulating a flocking robot that moves downward through a maze. The sizes of the maze/robot and the interactions between them are customizable.
 
-2.interactive-soft-robot.ipynb
-
-Creating an enviornment where you can change the maze in real time.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
