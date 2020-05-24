@@ -9,13 +9,12 @@ We create a robot that is composed of a bulk of particles surrounded by a bounda
 
 ## Usage
 
-Please follow along these jupyter notebooks:
-
-1. adaptive_robot.ipynb 
+Please follow along 
+1. main.py with function library func.py and ploting library visual_lib.py
 
 Simulating a flocking robot that moves downward through a maze. The sizes of the maze/robot and the interactions between them are customizable.
 
-2.interactive-soft robot.ipynb
+2.interactive-soft-robot.ipynb
 
 Creating an enviornment where you can change the maze in real time.
 
