@@ -22,7 +22,6 @@ def plot_circles(fig, ax, x, y, r, c='r', cmap=matplotlib.cm.rainbow, ticks=[0, 
 
     ax.add_collection(p)
 
-    # cbar = fig.colorbar(p, ax=ax,ticks=ticks)
     p.set_clim(min(ticks), max(ticks))
     return fig, p
 

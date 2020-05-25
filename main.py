@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import numpy.linalg as la
 
-import func as func
-import visual_lib as vl
+import lib.visual_lib as vl
+from lib import func as func
 
 parser = argparse.ArgumentParser(description='Active robot model')
-parser.add_argument('--save_path', metavar='data path', type=str, help='saving path',
+parser.add_argument('--save_path', metavar='data path', type=str, help='save path',
                     default='/Users/jiayiwu/projects/softrobot/experiment/')
 parser.add_argument('--dt', type=float, help='time step', default=0.005)
 parser.add_argument('--tau', type=int, help='Max iteration time (number of iteration/dt)', default=40)
@@ -20,7 +20,7 @@ parser.add_argument('--R', type=float, help='Radius of beads', default=0.5)
 parser.add_argument('--RW', type=float, help='Radius of wall',
                     default=3)
 
-parser.add_argument('--FR', type=int, help='cutoff range of force between beads(repulsion if surface distance < R)',
+parser.add_argument('--FR', type=int, help='cutoff range of force between beads (repulsion if surface distance < R)',
                     default=0)
 parser.add_argument('--c_LJ', type=float, help='L-J force parameter', default=1.)
 parser.add_argument('--alp', type=float, help='ratio between active and non-active suggesting: [0-5]', default=0.5)
@@ -28,8 +28,7 @@ parser.add_argument('--if_adap', type=bool, help='if active or not', default=Tru
 
 parser.add_argument('--c_active', type=float, help='active amplitude', default=2)
 parser.add_argument('--c_g', type=float, help='travel downward velocity ', default=2)
-parser.add_argument('--las', type=float, help='[0,1] when las=1 the change of theta is instantaneous ', default=0.1)
-
+parser.add_argument('--las', type=float, help='between [0,1] when las=1 the change of theta is instantaneous ', default=0.1)
 
 def write_par():
     '''write parameters in the path named Datapath '''
@@ -68,11 +67,11 @@ def initialize():
     '''
     initialize positions of wall and particles
     :return:
-    rb: postions particles of robot
-    s_id: skin id inside the robot
-    rw: position of walls
-    thetas_vec: initialize direction of the move of each particles inside robot
-    ad_f: use for calculate actf (for plotting only)
+    rb: initial positions of particles of robot, 2d array (x,y)
+    s_id: index of the skin particles corresponding to positions in rb
+    rw: position of walls, 2d array (x,y)
+    thetas_vec: initialize direction of movement of each particle inside the robot
+    ad_f: use for calculating actf (for plotting only)
     actf: active force
     n_b: number of body particles
     n_w: number of wall particles
@@ -104,11 +103,12 @@ def initialize():
 
 def make_s_b():
     '''
-    make skin and body particles(hex packing)
+    make skin and body particles (hex packing)
+
     :return:
     tot: all particles
     skin: skin particles
-    s_id: skin particle id inside all particles
+    s_id: index of the skin particles corresponding to positions in skin
     '''
     body = func.make_hex(2, 1)
     body[:, 1] = body[:, 1] - np.mean(body[:, 1])

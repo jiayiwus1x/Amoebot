@@ -1,12 +1,11 @@
-import matplotlib
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.collections import PatchCollection
 import math
+import numpy as np
+
+
 
 def make_hex(n1, n2):
     '''
-    make a hexagonal lattice of particles, n1 and n2 decides how big it is
+    make a hexagonal lattice of particles, n1 and n2 are parameters that control the size
     '''
 
     pointx = np.concatenate((np.arange(n1), np.arange(-0.5, n1 + 0.5, 1)), axis=0)
@@ -26,7 +25,7 @@ def make_hex(n1, n2):
 
 
 def make_movie(dat_hd_r, movname=[]):
-    '''make movies, need to install ffmpeg'''
+    '''make movies from image frames. pre-requisite: ffmpeg'''
     import subprocess
 
     imgname = dat_hd_r
@@ -51,29 +50,6 @@ def make_movie(dat_hd_r, movname=[]):
                      '0', '-r',
                      '100', '-pix_fmt', 'yuv420p'])
 
-
-def plot_circles(fig, ax, x, y, r, c='r', cmap=matplotlib.cm.rainbow, ticks=[0, 1]):
-    patches = []
-    for x1, y1 in zip(x, y):
-        circle = plt.Circle((x1, y1), r)
-        patches.append(circle)
-
-    if isinstance(c, str):
-        p = PatchCollection(patches, facecolor="None", edgecolor=c, alpha=1, linewidths=2)
-        ax.add_collection(p)
-        return ax
-
-    else:
-        p = PatchCollection(patches, cmap=cmap, alpha=0.8)
-        p.set_array(np.array(c))
-
-    ax.add_collection(p)
-
-    # cbar = fig.colorbar(p, ax=ax,ticks=ticks)
-    p.set_clim(min(ticks), max(ticks))
-    return fig
-
-
 def get_d_txt(a):
     times_go_thr = []
     forces = []
@@ -88,5 +64,6 @@ def get_d_txt(a):
         j += 1
     return forces, times_go_thr
 
-def PointsInCircum(a,b,n=100):
-    return np.array([[math.cos(2*np.pi/n*x)*a,math.sin(2*np.pi/n*x)*b] for x in range(0,n+1)])
+
+def PointsInCircum(a, b, n=100):
+    return np.array([[math.cos(2 * np.pi / n * x) * a, math.sin(2 * np.pi / n * x) * b] for x in range(0, n + 1)])
